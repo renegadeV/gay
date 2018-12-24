@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+<class name="cn.edu.zjut.po.Customer" catalog="bookstore" table="customer">
+<id name="customerID" type="int">
+<column name="customerID"/>
+<generator class="identity"/>
+</id>
+<property name="account" type="string">
+<column name="account" length="20" unique="true"/>
+</property>
+<property name="password" type="string">
+<column name="password" length="20"/>
+</property>
+<property name="money" type="double">
+<column name="money"/>
+</property>
+<property name="name" type="string">
+<column name="name" length="20"/>
+</property>
+<property name="sex" type="string">
+<column name="sex" length="2"/>
+</property>
+<property name="phone" type="string">
+<column name="phone" length="20"/>
+</property>
+<property name="email" type="string">
+<column name="email" length="100"/>
+</property>
+<property name="usedMoney" type="double">
+<column name="usedmoney"/>
+</property>
+<property name="inMoney" type="double">
+<column name="inmoney"/>
+</property>
+<set name="address" inverse="true" cascade="all-delete-orphan" lazy="false">
+<key>
+<column name="customerID"/>
+</key>
+<one-to-many class="cn.edu.zjut.po.Address" />
+</set>
+<set name="orders" inverse="true" cascade="all-delete-orphan" lazy="false">
+<key>
+<column name="customerID"/>
+</key>
+<one-to-many class="cn.edu.zjut.po.UserOrder" />
+</set>
+<many-to-one name="role"  class="cn.edu.zjut.po.Role" fetch="select" lazy="false"> 
+<column name="roleID"/> 
+</many-to-one> 
+</class>
+</hibernate-mapping>

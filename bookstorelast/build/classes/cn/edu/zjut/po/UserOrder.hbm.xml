@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+<class name="cn.edu.zjut.po.UserOrder" catalog="bookstore" table="userorder" >
+<id name="orderID" type="int">
+<column name="orderID"/>
+<generator class="identity"/>
+</id>
+<property name="price" type="double">
+<column name="price"/>
+</property>
+<property name="finalPrice" type="double">
+<column name="finalPrice"/>
+</property>
+<many-to-one name="customer" lazy="false" class="cn.edu.zjut.po.Customer" cascade="none" column="customerID"/>
+<property name="orderState" type="int">
+<column name="orderstate"/>
+</property>
+<property name="discountName" type="string">
+<column name="discountname"/>
+</property>
+<set name="orderItem"  cascade="all" lazy="false">
+<key>
+<column name="orderID"/>
+</key>
+<one-to-many class="cn.edu.zjut.po.OrderItem"/>
+</set>
+<property name="name" type="string">
+<column name="name"/>
+</property>
+<property name="phone" type="string">
+<column name="phone"/>
+</property>
+<property name="address" type="string">
+<column name="address"/>
+</property>
+<property name="kdNum" type="string">
+<column name="kdnum"/>
+</property>
+<property name="zipcode" type="string">
+<column name="zipcode"/>
+</property>
+</class>
+</hibernate-mapping>

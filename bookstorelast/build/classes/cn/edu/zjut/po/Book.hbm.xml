@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+<class name="cn.edu.zjut.po.Book" catalog="bookstore" table="book">
+<id name="bookID" type="int">
+<column name="bookID"/>
+<generator class="identity"/>
+</id>
+<property name="isbn" type="string">
+<column name="ISBN" length="50"/>
+</property>
+<property name="title" type="string">
+<column name="title" length="60"/>
+</property>
+<property name="author" type="string">
+<column name="author" length="20"/>
+</property>
+<property name="price" type="double">
+<column name="price"/>
+</property>
+<property name="press" type="string">
+<column name="press" length="50"/>
+</property>
+<property name="description" type="string">
+<column name="description"/>
+</property>
+<property name="soldNum" type="int">
+<column name="soldnum"/>
+</property>
+<property name="stockNum" type="int">
+<column name="stock"/>
+</property>
+<property name="paddress" type="string">
+<column name="paddress" length="100"></column>
+</property>
+<many-to-one name="categorySecond" lazy="false" class="cn.edu.zjut.po.CategorySecond" column="csid"/>
+</class>
+</hibernate-mapping>

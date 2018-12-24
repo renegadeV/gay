@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+<class name="cn.edu.zjut.po.OrderItem" catalog="bookstore" table="orderitem">
+<id name="itemID" type="int">
+<column name="itemID"/>
+<generator class="identity"/>
+</id>
+<property name="num" type="int">
+<column name="num"/>
+</property>
+<property name="bookPrice" type="double">
+<column name="bookprice"/>
+</property>
+<property name="bookTitle" type="string">
+<column name="booktitle"></column>
+</property>
+<property name="price" type="double">
+<column name="price"/>
+</property>
+<many-to-one name="book" lazy="false" class="cn.edu.zjut.po.Book" unique="true">
+<column name="bookID"/>
+</many-to-one>
+<many-to-one name="order" lazy="proxy" cascade="none" class="cn.edu.zjut.po.UserOrder" column="orderID"/>
+</class>
+
+</hibernate-mapping>

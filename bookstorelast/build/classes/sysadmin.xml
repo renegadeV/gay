@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+<package name="sysadmin" extends="struts-default" >
+<action name="SysAdminLogin" class="sysadminAction" method="login" >
+<result name="success">SysAdminMain.jsp</result>
+<result name="fail">SysAdminlogin.jsp</result>
+<result name="input"></result>
+</action>
+<action name="SysAdminLogout" class="sysadminAction" method="logout" >
+<result name="success">SysAdminlogin.jsp</result>
+</action>
+<action name="SysAdminAddRole" class="sysadminAction" method="addRole" >
+<result name="success">SysAdminMain.jsp</result>
+</action>
+<action name="SysAdminDandURole" class="sysadminAction" method="getAllRoles">
+<result name="success">SysAdminDandURole.jsp</result>
+</action>
+<action name="SysAdminDeleteRole" class="sysadminAction" method="deleteRole">
+<result name="success">SysAdminDandURole.jsp</result>
+</action>
+<action name="SysAdminUpdateRole" class="sysadminAction" method="getRoleByRoleID">
+<result name="success">SysAdminUpdateRole.jsp</result>
+</action>
+<action name="SysAdminUpdateandSaveRole" class="sysadminAction" method="updateRole">
+<result name="success">SysAdminDandURole.jsp</result>
+</action>
+<action name="SysAdminDandURight" class="sysadminAction" method="getAllRoles">
+<result name="success">SysAdminDandURight.jsp</result>
+</action>
+<action name="SysAdminUpdateRight" class="sysadminAction" method="getRoleByRoleID">
+<result name="success">SysAdminUpdateRight.jsp</result>
+</action>
+<action name="SysAdminUpdateandSaveRight" class="sysadminAction" method="updateRight">
+<result name="success">SysAdminDandURight.jsp</result>
+</action>
+</package>
+</struts>

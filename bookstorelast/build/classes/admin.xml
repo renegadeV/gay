@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+<package name="admin" extends="struts-default" >
+<action name="AdminLogin" class="adminAction" method="login" >
+<result name="success">AdminMain.jsp</result>
+<result name="fail">Adminlogin.jsp</result>
+<result name="input"></result>
+</action>
+<action name="AdminAddBook" class="adminAction" method="addBook">
+<result name="success">AdminAddBookSuccess.jsp</result>
+<result name="fail">AdminAddBook.jsp</result>
+<result name="input">AdminAddBook.jsp</result>
+</action>
+<action name="AdminWillAddBook" class="adminAction" method="findSecondCategory">
+<result name="success">AdminAddBook.jsp</result>
+</action>
+<action name="AdminAddCategory" class="adminAction" method="addCategory">
+<result name="success">AdminAddCategorySuccess.jsp</result>
+<result name="fail">AdminAddCategory.jsp</result>
+<result name="input">AdminAddCategory.jsp</result>
+</action>
+<action name="AdminAddSecondCategory" class="adminAction" method="findCategory">
+<result name="success">AdminAddSecondCategory.jsp</result>
+<result name="fail">AdminAddSecondCategory.jsp</result>
+</action>
+<action name="AdminSaveSecondCategory" class="adminAction" method="saveSecondCategory">
+<result name="success">AdminMain.jsp</result>
+<result name="fail">AdminAddSecondCategory.jsp</result>
+</action>
+<action name="AdminDandUBook" class="adminAction" method="getAllBooks">
+<result name="success">AdminDandUBook.jsp</result>
+</action>
+<action name="AdminDandUCategory" class="adminAction" method="getAllCategory">
+<result name="success">AdminDandUCategory.jsp</result>
+</action>
+<action name="AdminDandUSecondCategory" class="adminAction" method="getAllSecondCategory">
+<result name="success">AdminDandUSecondCategory.jsp</result>
+</action>
+<action name="AdminDeleteBook" class="adminAction" method="deleteBook">
+<result name="success">AdminDandUBook.jsp</result>
+</action>
+<action name="AdminDeleteCategory" class="adminAction" method="deleteCategory">
+<result name="success">AdminDandUCategory.jsp</result>
+</action>
+<action name="AdminDeleteSecondCategory" class="adminAction" method="deleteSecondCategory">
+<result name="success">AdminDandUSecondCategory.jsp</result>
+</action>
+<action name="AdminDeleteCustomer" class="adminAction" method="deleteCustomer">
+<result name="success">AdminShowCustomer.jsp</result>
+</action>
+<action name="AdminUpdateBook" class="adminAction" method="getBookByID">
+<result name="success">AdminUpdateBook.jsp</result>
+</action>
+<action name="AdminUpdateCategory" class="adminAction" method="getCategoryByCid">
+<result name="success">AdminUpdateCategory.jsp</result>
+</action>
+<action name="AdminUpdateSecondCategory" class="adminAction" method="getSecondCategoryByCsid">
+<result name="success">AdminUpdateSecondCategory.jsp</result>
+</action>
+<action name="AdminUpdateandSaveBook" class="adminAction" method="updateBook">
+<result name="success">AdminDandUBook.jsp</result>
+</action>
+<action name="AdminUpdateandSaveCategory" class="adminAction" method="updateCategory">
+<result name="success">AdminDandUCategory.jsp</result>
+</action>
+<action name="AdminUpdateandSaveSecondCategory" class="adminAction" method="updateSecondCategory">
+<result name="success">AdminDandUSecondCategory.jsp</result>
+</action>
+<action name="produceCard" class="adminAction" method="produceMoneyCard">
+<result name="success">AdminProduceMoneyCard.jsp</result>
+</action>
+<action name="AdminLogout" class="adminAction" method="logout">
+<result name="success">Adminlogin.jsp</result>
+</action>
+<action name="WaitDealOrder" class="adminAction" method="getWaitDealOrders">
+<result name="success">AdminWaitDealOrders.jsp</result>
+</action>
+<action name="AdminShowCustomer" class="adminAction" method="FindCustomer">
+<result name="fail">AdminFindCustomer.jsp</result>
+<result name="success">AdminShowCustomer.jsp</result>
+</action>
+<action name="AdminDealOrder" class="adminAction" method="dealOrder">
+<result name="success">AdminDealOrderSuccess.jsp</result>
+<result name="fail">AdminDealOrder.jsp</result>
+</action>
+<action name="SendedOrder" class="adminAction" method="getSendedOrder">
+<result name="success">AdminSendedOrders.jsp</result>
+</action>
+<action name="modifyOrderKdNum" class="adminAction" method="dealOrder">
+<result name="success">AdminDealOrderSuccess.jsp</result>
+<result name="fail">AdminModifyKdNum.jsp</result>
+ </action>
+ <action name="Dealed" class="adminAction" method="getFinishedOrders" >
+ <result name="success">AdminFinishedOrder.jsp</result>
+ </action>
+ <action name="findOrder" class="adminAction" method="findOrderByID">
+ <result name="success">AdminFindOrderSuccess.jsp</result>
+ </action>
+ <action name="findMoneyCard" class="adminAction" method="findMoneyCard">
+ <result name="success">AdminFindMoneyCardResult.jsp</result>
+ </action>
+ <action name="adminShowBook" class="adminAction" method="adminShowBook">
+ <result name="success">AdminShowBook.jsp</result>
+ </action>
+ <action name="AdminFindBook" class="bookAction" method="findBook">
+<result name="success">AdminDandUBook.jsp</result>
+<result name="null">AdminDandUBook.jsp</result>
+</action>
+<action name="AdminUpdateandSaveCustomer" class="adminAction" method="updateCustomer">
+<result name="success">AdminShowCustomer.jsp</result>
+</action>
+<action name="AdminUpdateCustomer" class="adminAction" method="getCustomerByCustomerId">
+<result name="success">AdminUpdateCustomer.jsp</result>
+</action>
+</package>
+</struts>
