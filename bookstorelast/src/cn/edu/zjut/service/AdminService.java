@@ -1,5 +1,8 @@
 package cn.edu.zjut.service;
 
+import java.math.BigInteger;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -47,11 +50,26 @@ public class AdminService implements IAdminService{
 	public List<MoneyCard> produceMoneyCard(Double money, Integer num) {
 		// TODO Auto-generated method stub
 		List<MoneyCard> newcards=new ArrayList<MoneyCard>(0);
-		Integer password= 0;
+		//Integer password= 0;
 		for(int i=num-1;i>=0;i--){
 			MoneyCard moneyCard=new MoneyCard();
-			password=(int)(Math.random()*10000000);
-			moneyCard.setPassword(password.toString());
+			long time = System.currentTimeMillis();
+			String t = String.valueOf(time); 
+			String password = "0";
+				if (t == null || t.length() == 0) {
+					throw new IllegalArgumentException("String to encript cannot be null or zero length");
+				}
+				//StringBuffer hexString = new StringBuffer();
+				try {
+					MessageDigest md = MessageDigest.getInstance("MD5");
+					md.update(t.getBytes());
+					password=new BigInteger(1, md.digest()).toString(18);
+				} catch (NoSuchAlgorithmException e) {
+					e.printStackTrace();
+				}
+			//password=(int)(Math.random()*10000000);//MD5 18Î» ×Ö·û´® 
+			//moneyCard.setPassword(password.toString());
+			moneyCard.setPassword(password.substring(15));
 			moneyCard.setMoney(money);
 			moneyCardDAO.addMoneyCard(moneyCard);
 			//moneyCard=moneyCardDAO.findMoneyCardByPassword(moneyCard.getPassword());
