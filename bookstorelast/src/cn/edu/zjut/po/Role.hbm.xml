@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+<class name="cn.edu.zjut.po.Role" catalog="bookstore" table="role">
+<id name="roleID" type="int">
+<column name="roleID"/>
+<generator class="identity"/>
+</id>
+<property name="roleName" type="string">
+<column name="roleName"/>
+</property>
+<property name="rightCode" type="int">
+<column name="rightCode"/>
+</property>
+<set name="customers" inverse="true" cascade="all" lazy="false">  
+<key column="roleID"/><!-- key指明了角色表中的外键-->  
+<one-to-many class="cn.edu.zjut.po.Customer"/><!-- one-to-many指明了和哪个类进行一对多的映射 -->  
+</set>
+</class>
+</hibernate-mapping>
